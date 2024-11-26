@@ -18,24 +18,21 @@ If the API call succeeds, dispatch REGISTER_USER_SUCCESS with the response data 
 4-Handle Failure:
 If the API call fails, dispatch REGISTER_USER_FAILURE with the error message. This updates the state with the error (error: error.message) and stops the loading. */
 
-
-
-
 //action types
-export const REGISTER_USER_REQUEST = "REGISTER_USER_REQUEST";
-export const REGISTER_USER_SUCCESS = "REGISTER_USER_SUCCESS";
-export const REGISTER_USER_FAILURE = "REGISTER_USER_FAILURE";
+export const LOGIN_USER_REQUEST = "LOGIN_USER_REQUEST";
+export const LOGIN_USER_SUCCESS = "LOGIN_USER_SUCCESS";
+export const LOGIN_USER_FAILURE = "REGISTER_USER_FAILURE";
 
-export const DELETE_USER_REQUEST = "DELETE_USER_REQUEST";
-export const DELETE_USER_SUCCESS = "DELETE_USER_SUCCESS";
-export const DELETE_USER_FAILURE = "DELETE_USER_FAILURE";
+export const DELET_USER_REQUEST = "DELETE_USER_REQUEST";
+export const DELET_USER_SUCCESS = "DELETE_USER_SUCCESS";
+export const DELET_USER_FAILURE = "DELETE_USER_FAILURE";
 
 //action creators
 import axios from "axios";
 import {
-  REGISTER_USER_REQUEST,
-  REGISTER_USER_SUCCESS,
-  REGISTER_USER_FAILURE,
+  LOGIN_USER_REQUEST,
+  LOGIN_USER_SUCCESS,
+  LOGIN_USER_FAILURE,
   DELETE_USER_FAILURE,
   DELETE_USER_REQUEST,
   DELETE_USER_SUCCESS,
@@ -44,10 +41,7 @@ import {
 export const loginUser = (credentials) => async (dispatch) => {
   dispatch({ type: REGISTER_USER_REQUEST });
   try {
-    const response = await axios.post(
-      "http://localhost:5000/REGISTER",
-      credentials
-    );
+    const response = await axios.post("http://l", credentials);
     dispatch({ type: REGISTER_USER_SUCCESS, payload: response.data });
   } catch (error) {
     dispatch({ type: REGISTER_USER_FAILURE, payload: error.message });
@@ -104,4 +98,3 @@ const rootReducer = combineReducers({
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
 export default store;
-
