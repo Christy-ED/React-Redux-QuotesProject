@@ -4,10 +4,9 @@ import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <Recipes/>
-      </header>
+    <div>
+      <h1>React-Redux Data Fetch</h1>
+      <Recipes />
     </div>
   );
 }

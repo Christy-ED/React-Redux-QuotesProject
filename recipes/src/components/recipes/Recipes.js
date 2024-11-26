@@ -1,7 +1,7 @@
 // DataList.js
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchData } from "./actions";
+import { fetchData } from "../../actions/actions.js";
 
 const Recipes = () => {
   const dispatch = useDispatch();
