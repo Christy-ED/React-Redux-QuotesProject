@@ -1,6 +1,6 @@
-import React from 'react';
-import Recipes from './components/recipes/Recipes';
-import './App.css';
+// import React from "react";
+import Recipes from "./components/recipes/Recipes";
+import "./App.css";
 
 function App() {
   return (

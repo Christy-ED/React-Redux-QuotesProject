@@ -5,20 +5,17 @@ import { fetchData } from "../../actions/actions.js";
 
 const Recipes = () => {
   const dispatch = useDispatch();
-  const { loading, data, error } = useSelector((state) => state.data);
+  const { loading, recipes, error } = useSelector((state) => state.data);
 
   useEffect(() => {
-    dispatch(fetchData()); // Fetch data on component mount
+    dispatch(fetchData()); 
   }, [dispatch]);
-
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error}</p>;
-
+  
   return (
     <div>
       <h1>Data List</h1>
       <ul>
-        {data.map((recipes) => (
+        {recipes.map((recipes) => (
           <li key={recipes.id}>{recipes.name} {recipes.ingredients}</li> 
         ))}
       </ul>
