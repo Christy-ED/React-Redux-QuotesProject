@@ -18,8 +18,8 @@ const Recipes = () => {
     <div>
       <h1>Data List</h1>
       <ul>
-        {data.map((item) => (
-          <li key={item.id}>{item.name}</li> // Replace with your data structure
+        {data.map((recipes) => (
+          <li key={recipes.id}>{recipes.name} {recipes.ingredients}</li> 
         ))}
       </ul>
     </div>
