@@ -28,39 +28,45 @@ export const fetchData = () => async (dispatch) => {
   }
 };
 
-// export const loginUser = (credentials) => async (dispatch) => {
-//   dispatch({ type: LOGIN_USER_REQUEST });
-//   try {
-//     const response = await axios.post(
-//       "https://dummyjson.com/auth/login",
-//       credentials
-//     );
-//     dispatch({ type: "LOGIN_SUCCESS", payload: response.data });
-//   } catch (error) {
-//     dispatch({ type: "LOGIN_FAILURE", payload: error.message });
-//   }
-// };
 
-// export const registerUser = (userData) => async (dispatch) => {
-//   try {
-//     const response = await axios.post(
-//       "https://dummyjson.com/auth/delete",
-//       userData
-//     );
-//     dispatch({ type: "REGISTER_SUCCESS", payload: response.data });
-//   } catch (error) {
-//     dispatch({ type: "REGISTER_FAILURE", payload: error.message });
-//   }
-// };
+export const registerUser = (userData) => async (dispatch) => {
+  dispatch({ type: REGISTER_USER_REQUEST });
+  try {
+    const response = await axios.post(
+      'https://dummyjson.com/users/add',
+      userData
+    );
+    dispatch({ type: "REGISTER_SUCCESS", payload: response.data });
+  } catch (error) {
+    dispatch({ type: "REGISTER_FAILURE", payload: error.message });
+  }
+};
 
-// export const deleteUser = (userData) => async (dispatch) => {
-//   try {
-//     const response = await axios.post(
-//       "https://dummyjson.com/auth/register",
-//       userData
-//     );
-//     dispatch({ type: "REGISTER_SUCCESS", payload: response.data });
-//   } catch (error) {
-//     dispatch({ type: "REGISTER_FAILURE", payload: error.message });
-//   }
-// };
+
+export const loginUser = (credentials) => async (dispatch) => {
+  dispatch({ type: LOGIN_USER_REQUEST });
+  try {
+    const response = await axios.post(
+      "https://dummyjson.com/user/login",
+      credentials
+    );
+    dispatch({ type: "LOGIN_SUCCESS", payload: response.data });
+  } catch (error) {
+    dispatch({ type: "LOGIN_FAILURE", payload: error.message });
+  }
+};
+
+
+
+export const deleteUser = (userData) => async (dispatch) => {
+  dispatch({ type: DELETE_USER_REQUEST });
+  try {
+    const response = await axios.post(
+      "https://dummyjson.com/users/delete",
+      userData
+    );
+    dispatch({ type: "DELETE_USER_SUCCESS", payload: response.data });
+  } catch (error) {
+    dispatch({ type: " DELETE_USER_FAILURE", payload: error.message });
+  }
+};
