@@ -29,12 +29,12 @@ export const fetchData = () => async (dispatch) => {
 };
 
 
-export const registerUser = (userData) => async (dispatch) => {
+export const registerUser = (formData) => async (dispatch) => {
   dispatch({ type: REGISTER_USER_REQUEST });
   try {
     const response = await axios.post(
       'https://dummyjson.com/users/add',
-      userData
+      formData
     );
     dispatch({ type: "REGISTER_SUCCESS", payload: response.data });
   } catch (error) {
